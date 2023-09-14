@@ -3,7 +3,6 @@ const { SlashCommandBuilder, EmbedBuilder, PermissionsBitFieldBitField } = requi
 const locale = require('../locale/en.json')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
-const { EmbedBuilder } = require('discord.js')
 const { embedColor, ownerID } = require('../config');
 
 module.exports = {

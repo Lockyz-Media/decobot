@@ -16,22 +16,6 @@ module.exports = {
 			de: 'Hunderasse',
 		})*/
         .setDMPermission(false)
-        .addIntegerOption((option) => 
-			option.setName('sides')
-            /*.setNameLocalizations({
-			    pl: 'pies',
-			    de: 'hund',
-	        })*/
-			.setDescription('The amount of sides on the dice you want to roll (Up to 1000).')
-            /*.setDescriptionLocalizations({
-			    pl: 'Rasa psa',
-			    de: 'Hunderasse',
-		    })*/
-			.setRequired(false)
-            .setMaxValue(1000)
-            .setMinValue(3)
-		)
-
         .addIntegerOption((option) =>
             option.setName('number')
             /*.setNameLocalizations({
@@ -46,7 +30,22 @@ module.exports = {
             .setRequired(true)
             .setMaxValue(20)
             .setMinValue(1)
-        ),
+        )
+        .addIntegerOption((option) => 
+			option.setName('sides')
+            /*.setNameLocalizations({
+			    pl: 'pies',
+			    de: 'hund',
+	        })*/
+			.setDescription('The amount of sides on the dice you want to roll (Up to 1000).')
+            /*.setDescriptionLocalizations({
+			    pl: 'Rasa psa',
+			    de: 'Hunderasse',
+		    })*/
+			.setRequired(false)
+            .setMaxValue(1000)
+            .setMinValue(3)
+		),
 	async execute(interaction) {
         commandMetrics(interaction.client, "roll", interaction.guild.id, interaction.user.id)
         const client = interaction.client
