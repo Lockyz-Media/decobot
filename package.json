@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Lockyz-Dev/decobot#readme",
   "dependencies": {
+    "@napi-rs/canvas": "^0.1.44",
     "@discordjs/rest": "^0.1.0-canary.0",
     "better-sqlite3": "^7.5.1",
     "discord-anti-spam": "^2.5.8",

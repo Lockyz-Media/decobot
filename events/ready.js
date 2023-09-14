@@ -1,5 +1,5 @@
 const { ActivityType } = require('discord.js');
-const { embedColours, ownerID, tempusIDs, activity } = require('../config');
+const { embedColours, ownerID, botIDs, activity } = require('../config');
 
 module.exports = {
 	name: 'ready',
@@ -40,7 +40,7 @@ module.exports = {
 			}],
 			status: activityStatus
 		})
-		var logsID = tempusIDs.logs
+		var logsID = botIDs.logs
 		console.log("Custom Status Set")
 		console.log("🟢 Bit Core: 4.0.0m Online! Logged in as "+client.user.tag)
 		console.log('==== Have a good day! ====');

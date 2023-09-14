@@ -12,7 +12,7 @@
 		"client": "CLIENT ID",
 		"owner": "OWNER ID"
 	},
-	"activities": {
+	"activity": {
 		"type": "custom, playing, listening, or watching",
 		"state": "The text that displays as the status",
 		"status": "online, idle, invisible or dnd"

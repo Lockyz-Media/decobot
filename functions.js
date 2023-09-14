@@ -38,10 +38,10 @@ module.exports = {
 
         if(sendToLogChannel) {
             if(sendToLogChannel === true) {
-                client.channels.cache.get(config.tempusIDs.logs).send({ embeds: [embed] })
+                client.channels.cache.get(config.botIDs.logs).send({ embeds: [embed] })
             }
         } else if(sendToLogChannel === false) { } else {
-            client.channels.cache.get(config.tempusIDs.logs).send({ embeds: [embed] })
+            client.channels.cache.get(config.botIDs.logs).send({ embeds: [embed] })
         }
 
         if(sendToConsole) {
