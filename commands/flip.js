@@ -1,13 +1,24 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const {EmbedBuilder} = require('discord.js')
+const { commandMetrics } = require('../functions.js')
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js')
+const locale = require('../locale/en.json')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('flip')
-		.setDescription('Flip a basic coin.'),
+        /*.setNameLocalizations({
+			pl: 'pies',
+			de: 'hund',
+		})*/
+		.setDescription('Flip a basic coin.')
+        /*.setDescriptionLocalizations({
+			pl: 'Rasa psa',
+			de: 'Hunderasse',
+		})*/
+        .setDMPermission(false),
 	async execute(interaction) {
+        commandMetrics(interaction.client, "flip", interaction.guild.id, interaction.user.id)
         const client = interaction.client
         var lan = 'en'
         client.getUsSett = sql.prepare("SELECT * FROM userSettings WHERE userID = ?");
@@ -72,8 +83,8 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle(locale.flipEmbedTitle)
                 .setDescription(locale.flipDescription.replace('{answer}', answer))
-                .setImage("https://db.lockyzdev.net/bots/commands/flip/"+answer1+".jpg")
-                .setFooter({ text: coinName})
+                .setImage("https://cdn.lockyzdev.net/botcommands/flip/"+answer1+".jpg")
+                .setFooter({ text: coinName })
                 .setTimestamp();
             interaction.reply({ embeds: [embed] })
 		}

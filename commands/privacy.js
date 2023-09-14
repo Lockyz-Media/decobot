@@ -1,13 +1,24 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js')
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, Message, ButtonStyle, SlashCommandBuilder } = require('discord.js')
+const { commandMetrics } = require('../functions.js')
+const locale = require('../locale/en.json')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('privacy')
-		.setDescription('Get privacy and data collection information.'),
+        /*.setNameLocalizations({
+			pl: 'pies',
+			de: 'hund',
+		})*/
+		.setDescription('Get privacy and data collection information.')
+        /*.setDescriptionLocalizations({
+			pl: 'Rasa psa',
+			de: 'Hunderasse',
+		})*/
+        .setDMPermission(false),
 	async execute(interaction) {
+	    commandMetrics(interaction.client, "privacy", interaction.guild.id, interaction.user.id)
         const client = interaction.client
         var lan = 'en'
         client.getUsSett = sql.prepare("SELECT * FROM userSettings WHERE userID = ?");
@@ -19,12 +30,6 @@ module.exports = {
             }
         }
         const locale = require('../locale/'+lan+'.json')
-        const embed = new EmbedBuilder()
-            .setTitle('Privacy Information')
-            .setDescription(locale.privacyResponse)
-            .addFields([
-                { name: "Intents Used", value: "GUILDS\nGUILD_MEMBERS\nGUILD_BANS\nGUILD_EMOJIS_AND_STICKERS\nGUILD_INVITES\nGUILD_MESSAGES\n\nWe only use intents required to make features run."}
-            ])
         interaction.reply({ content: locale.priacyResponse })
 	}
 };

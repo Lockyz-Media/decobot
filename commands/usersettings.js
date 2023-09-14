@@ -1,56 +1,46 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { PermissionsBitField, EmbedBuilder, InviteGuild, ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle  } = require('discord.js')
-const SQLite = require("better-sqlite3");
-const sql = new SQLite('./bot.sqlite');
+const { PermissionsBitField, EmbedBuilder, InviteGuild, ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, SlashCommandBuilder } = require('discord.js')
+const { commandMetrics } = require('../functions.js')
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('usersettings')
-		.setDescription('Change User settings'),
+        /*.setNameLocalizations({
+			pl: 'pies',
+			de: 'hund',
+		})*/
+		.setDescription('Change User settings')
+        /*.setDescriptionLocalizations({
+			pl: 'Rasa psa',
+			de: 'Hunderasse',
+		})*/
+        .setDMPermission(false),
 
 	async execute(interaction) {
+        commandMetrics(interaction.client, "usersettings", interaction.guild.id, interaction.user.id)
         const client = interaction.client
-        var lan = 'en'
-        const usSettTable = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'userSettings';").get();
-        client.setUsSett = sql.prepare("INSERT OR REPLACE INTO userSettings (userID, userAccess, language) VALUES (@userID, @userAccess, @language);");
-        client.getUsSett = sql.prepare("SELECT * FROM userSettings WHERE userID = ?");
-        let userset = client.getUsSett.get(interaction.user.id)
-
-        if(userset) {
-            if(userset.language) {
-                lan = userset.language;
-            }
-            userAccuss = userset.userAccess
-        } else {
-            showLeevels = 'true';
-            userLangoog = 'en';
-            userAccess = 'true';
-        }
-
-        const locale = require('../locale/'+lan+'.json')
 
         const modal = new ModalBuilder()
             .setCustomId('userSettings')
             .setTitle('User Settings')
 
-        const userAccess = new TextInputBuilder()
-            .setCustomId('userAccess')
-            .setLabel("Give users access to your information?")
-            .setStyle('SHORT')
+        const levelNotifs = new TextInputBuilder()
+            .setCustomId('levelNotifs')
+            .setLabel("Would you like to show level notifications?")
+            .setStyle(TextInputStyle.Short)
             .setPlaceholder('Type true or false')
             .setRequired(true)
 
         const languageUser = new TextInputBuilder()
             .setCustomId('languageUser')
             .setLabel("What language do you use?")
-            .setStyle('SHORT')
-            .setPlaceholder('Currently only \'en\', \'en-UWU\', \'fr\' and \'de\'.')
+            .setStyle(TextInputStyle.Short)
+            .setPlaceholder('Currently only \'en\', \'en-UWU\', \'de\' and \'fr\'')
             .setRequired(true)
 
-        const firstActionRow = new ActionRowBuilder().addComponents(userAccess);
+        const secondActionRow = new ActionRowBuilder().addComponents(levelNotifs);
         const fifthActionRow = new ActionRowBuilder().addComponents(languageUser);
 
-        modal.addComponents(firstActionRow, fifthActionRow);
+        modal.addComponents(secondActionRow, fifthActionRow);
 
         await interaction.showModal(modal);
     }

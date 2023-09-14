@@ -1,4 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { commandMetrics } = require('../functions.js')
+const { SlashCommandBuilder, EmbedBuilder, PermissionsBitFieldBitField } = require('discord.js')
 const locale = require('../locale/en.json')
 const SQLite = require("better-sqlite3");
 const sql = new SQLite('./bot.sqlite');
@@ -9,11 +10,12 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('faq')
 		.setDescription('Read the answers to some frequently asked questions')
+        .setDMPermission(false)
 		.addStringOption((option) => 
 			option
 				.setName('question')
 				.setDescription('What\'s your question?')
-				.setRequired(false)
+				.setRequired(true)
 				.addChoices(
 					{ name: 'How to add RAM to Minecraft?', value: 'ram' },
 					{ name: 'How to set up a forge server?', value: 'server' },

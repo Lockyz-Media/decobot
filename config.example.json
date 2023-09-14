@@ -1,0 +1,27 @@
+{
+	"embedColours": {
+		"positive": "#00FF1C",
+		"negative": "#FF0000",
+		"neutral": "#9013FE",
+		"main": "#86C1FD",
+		"secondary": "#50E3C2"
+	},
+	"botIDs": {
+		"logs": "LOGGING ID",
+		"guild": "GUILD ID",
+		"client": "CLIENT ID",
+		"owner": "OWNER ID"
+	},
+	"activities": {
+		"type": "custom, playing, listening, or watching",
+		"state": "The text that displays as the status",
+		"status": "online, idle, invisible or dnd"
+	},
+	"embedColor": "#ff0080",
+	"ownerID": "835394949612175380",
+	"clientId": "643225899021500473",
+	"guildId": "229690400816889856",
+	"logsID": "683458185763225617",
+	"welcomeID": "683458023636860981",
+	"token": "TOKEN"
+}

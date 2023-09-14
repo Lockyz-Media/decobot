@@ -28,10 +28,6 @@
     "magicBallAnswer18": "My sources say no",
     "magicBallAnswer19": "Signs point to yes",
     "magicBallAnswer20": "It is certain",
-    "magicBallDrink1": "{user} drank the blue liquid inside the 8ball and died",
-    "magicBallDrink2": "{user} drank the blue liquid inside the 8ball and can now see into the future",
-    "magicBallDrink3": "{user} drank the blue liquid inside the 8ball and passed out",
-    "magicBallDrink4": "{user} drank the blue liquid inside the 8ball and it tasted tangy",
     "banReasonAdded": "Banned by {user} for {reason}",
     "banReasonDefault": "Banned by {user}",
     "banReasonAddedResponse": "Banned {user} for {reason}",
@@ -58,8 +54,8 @@
     "impostorInfo": "This command allows one to find the \"Impostor\" among us.\n*Please Note that it's literally just a mathmatical calculation that randomly picks \"Not\"*",
     "impostorTextImpost": "{user} was the impostor",
     "impostorTextNot": "{user} was not the impostor",
-    "infoEmbedTitle": "Bit",
-    "infoEmbedDescription": "**Bit** is a multipurpose Discord bot.",
+    "infoEmbedTitle": "LMB",
+    "infoEmbedDescription": "**LMB** is a multipurpose Discord bot.",
     "infoFieldSupport": "Support Discord",
     "infoFieldDev": "Developer",
     "kickUnkickable": "Either my role is too low to Kick this user or they have some sort of magical power.",
@@ -87,5 +83,5 @@
     "giveawayRerollCommand": "Success! Giveaway Rerolled!",
     "owoWait": "Give me just a second senpai-san. I enjoy it when you use me.",
     "xpDisabled": "The XP System is disabled through guild settings, a server owner should disable this command.",
-    "priacyResponse": "This bot was created by Lockyz Dev, we do not store any user information without prior consent. We also will not store any information for persons under the age of 13 as per Australian law.\nBy using our services you agree to the use of privatised data needed to access the Discord API. If you would like us to exclude you from any sort of data useage please DM our Admin \"Robin Painter\" and let them know.\n\nYou're welcome to view a more in-depth version of our privacy policy at: <https://lockyzdev.net/privacy>"
+    "priacyResponse": "This bot was created by Lockyz Dev, we do not store any user information without prior consent. We also will not store any information for persons under the age of 13 as per Australian law.\nBy using our services you agree to the use of privatised data needed to access the Discord API. Lockyz Dev also collects your user ID for command metrics, *literally just counting how many times a command is used.*\nIf you would like to opt-out of any and all data collection, please send an email to lockyzdev@gmail.com\n\nYou're welcome to view a more in-depth version of our privacy policy at: <https://lockyzdev.net/privacy>"
 }
