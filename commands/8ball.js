@@ -49,7 +49,7 @@ module.exports = {
 	async execute(interaction) {
         const client = interaction.client
         const question = interaction.options.getString('question');
-        const drink = interaction.options.getString('drink');
+        const drink = interaction.options.getBoolean('drink');
         var lan = 'en'
         client.getUsSett = sql.prepare("SELECT * FROM userSettings WHERE userID = ?");
         let userset = client.getUsSett.get(interaction.user.id)
@@ -103,7 +103,7 @@ module.exports = {
                 .addFields([
                     { name: question, value: answer[1] }
                 ])
-                .setImage('https://dbbackup.lockyzdev.net/botcommands/8ball/cracked/id-'+answer[0]+'.png')
+                .setImage('https://cdn.lockyzdev.net/botcommands/8ball/cracked/id-'+answer[0]+'.png')
                 .setTimestamp();
             interaction.reply({ content: interaction.user.username+' drank the blue liquid inside the 8ball and '+drinkAnswer[1], embeds: [embed]})
             return;
@@ -115,7 +115,7 @@ module.exports = {
             .addFields([
                 { name: question, value: answer[1] }
             ])
-            .setImage("https://dbbackup.lockyzdev.net/botcommands/8ball/id-"+answer[0]+".png")
+            .setImage("https://cdn.lockyzdev.net/botcommands/8ball/id-"+answer[0]+".png")
             .setTimestamp();
         interaction.reply({ embeds: [embed]})
 	}
