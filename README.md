@@ -1,4 +1,7 @@
 # Decobot
+Decobot was a bot created for the Decocraft Discord Server. With the bots retirement we decided to open-source the code to allow everyone to see what made it tick.
+Bit 5 plugin: https://github.com/Bit-Plugins/Decobot-Utilities
+
 ## Version Information
 | Current Version | Next Version |
 | :---: | :---: |
